@@ -1,0 +1,16 @@
+<div fxLayout="column"  fxFlex="60" fxFlexOffset="20" class="container" fxLayoutAlign="center center">
+  <div>
+      <input style="display: none" (change)="handleFile($event)" type="file" #fileInput/>
+  </div>
+  <button mat-raised-button color="basic" (click)="fileInput.click()">Pick File</button>
+  <br/>
+  <div>
+      <img class="img-responsive mx-auto" width="200" src="{{ image }}" alt="">
+  </div>
+  <div class="progress-bar" *ngIf="isUploading">
+    <mat-progress-bar mode="determinate" value="{{ progressPercent }}"></mat-progress-bar> {{ progressPercent }} %
+  </div>
+  <div>
+      <button mat-raised-button color="primary" (click)="onUpload()">Upload</button>
+  </div>
+</div>
